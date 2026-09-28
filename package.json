@@ -1,0 +1,11 @@
+{
+  "name": "open-source-project-wiki",
+  "version": "1.0.0",
+  "description": "Cloud-Based Open Source Project Wiki with Automated DevOps CI/CD",
+  "scripts": {
+    "build": "bash scripts/build.sh",
+    "test": "bash scripts/test.sh"
+  },
+  "author": "",
+  "license": "MIT"
+}

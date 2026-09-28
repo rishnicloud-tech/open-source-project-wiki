@@ -1,0 +1,11 @@
+node_modules
+.git
+.gitignore
+Dockerfile
+Jenkinsfile
+README.md
+CLOUD_DEPLOYMENT.md
+VIVA.md
+scripts
+tests
+generate_html.py
