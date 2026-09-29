@@ -112,3 +112,4 @@ Refer to `CLOUD_DEPLOYMENT.md` for detailed AWS deployment instructions.
 - HTTPS (SSL/TLS).
 - Custom Domain Name.
 - Load Balancing and Auto Scaling.
+Jenkins CI/CD deployment test
