@@ -4,9 +4,11 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'open-source-project-wiki'
         CONTAINER_NAME = 'wiki-container'
+        DOCKER = 'C:\\Users\\rishn\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe'
     }
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
@@ -15,14 +17,17 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'docker build -t %DOCKER_IMAGE% .'
+                bat '"%DOCKER%" build -t %DOCKER_IMAGE% .'
             }
         }
 
         stage('Deploy') {
             steps {
-                bat 'docker rm -f %CONTAINER_NAME% 2>nul || exit /b 0'
-                bat 'docker run -d -p 8082:80 --name %CONTAINER_NAME% %DOCKER_IMAGE%'
+                bat '''
+                "%DOCKER%" stop %CONTAINER_NAME% 2>NUL || exit /b 0
+                "%DOCKER%" rm %CONTAINER_NAME% 2>NUL || exit /b 0
+                "%DOCKER%" run -d -p 8082:80 --name %CONTAINER_NAME% %DOCKER_IMAGE%
+                '''
             }
         }
     }
